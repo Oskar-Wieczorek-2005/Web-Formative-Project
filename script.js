@@ -58,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const btnType = button.innerText;
             if (btnType === "Inventory") {
-                openModal("Inventory", "Items: Rusty Sword, Health Potion, Map.");
+                openModal("Inventory", "Inevntory Loads");
             } else if (btnType === "Notes") {
-                openModal("Notes", "The dragon sleeps in the Northern Mountains.");
+                openModal("Notes", "NOtes work");
             } else if (btnType === "Skill Tree") {
-                openModal("Skill Tree", "Current Skills: Slash (Level 1). Unlock more as you level up.");
+                openModal("Skill Tree", "skill tree works");
             } else {
                 openModal(btnType, "You clicked " + btnType);
             }
