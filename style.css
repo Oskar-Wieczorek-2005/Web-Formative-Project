@@ -13,7 +13,7 @@ body.dark-theme {
 }
 
 html {
-    /* This allows the JS to control everything via 1rem */
+    /* Critical for the Text Size setting to work */
     font-size: var(--game-font-size);
 }
 
@@ -26,7 +26,7 @@ body {
     transition: background-color 0.3s, font-size 0.2s;
 }
 
-/* All UI elements scale based on the root font-size */
+/* Ensure all buttons and text scale with the root font size */
 h1, p, button, .settings-item, .nav-btn, .bottom-btn, .settings-btn {
     font-size: 1rem; 
 }
@@ -88,7 +88,7 @@ h1, p, button, .settings-item, .nav-btn, .bottom-btn, .settings-btn {
 .top-nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
-    margin-top: 65px; /* Pushes nav below the fixed header */
+    margin-top: 65px;
 }
 
 .nav-btn {
@@ -125,4 +125,51 @@ h1, p, button, .settings-item, .nav-btn, .bottom-btn, .settings-btn {
     cursor: pointer;
     border-right: 1px solid rgba(255, 255, 255, 0.12);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid var(--banner-bg);
+    max-width: 400px;
+    width: 85%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.modal-content h2 {
+    font-family: "Cinzel", serif;
+    margin-top: 0;
+}
+
+#modal-close {
+    margin-top: 20px;
+    background: var(--banner-bg);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
