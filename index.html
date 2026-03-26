@@ -1,59 +1,58 @@
 <!doctype html>
 <html lang="en">
-	<head>
-        <script src="./script.js" type = module ></script>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Web Formative Project</title>
-		<link rel="stylesheet" href="./style.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<header class="top-banner">
-			<h1 class="site-title">Adventure Game</h1>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Web Formative Project</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="top-banner">
+            <h1 class="site-title">Adventure Game</h1>
 
-			<details class="settings">
-				<summary class="settings-btn" role="button" aria-label="Settings">
-					Settings
-				</summary>
-				<div class="settings-menu" role="menu">
-					<button type="button" class="settings-item" role="menuitem">Option 1</button>
-					<button type="button" class="settings-item" role="menuitem">Option 2</button>
-					<button type="button" class="settings-item" role="menuitem">Option 3</button>
-				</div>
-			</details>
-		</header>
+            <details class="settings">
+                <summary class="settings-btn" role="button" aria-label="Settings">
+                    Settings
+                </summary>
+                <div class="settings-menu" role="menu">
+                    <button type="button" id="btn-theme" class="settings-item" role="menuitem">Dark Mode: Off</button>
+                    <button type="button" id="btn-sound" class="settings-item" role="menuitem">Sound: On</button>
+                    <button type="button" id="btn-text" class="settings-item" role="menuitem">Text Size: Normal</button>
+                </div>
+            </details>
+        </header>
 
-		<nav class="top-nav" aria-label="Primary">
-			<button type="button" class="nav-btn">Inventory</button>
-			<button type="button" class="nav-btn">Notes</button>
-			<button type="button" class="nav-btn">Skill Tree</button>
-			<button type="button" class="nav-btn">Button 4</button>
-		</nav>
+        <nav class="top-nav" aria-label="Primary">
+            <button type="button" class="nav-btn">Inventory</button>
+            <button type="button" class="nav-btn">Notes</button>
+            <button type="button" class="nav-btn">Skill Tree</button>
+            <button type="button" class="nav-btn">Button 4</button>
+        </nav>
 
-		<main class="container">
-			<p id="status">Ready</p>
-			<button id="btnHello" type="button">Click me</button>
+        <main class="container">
+            <p id="status">Ready</p>
+            <button id="btnHello" type="button">Click me</button>
 
-			<div id="output" aria-live="polite"></div>
+            <div id="output" aria-live="polite"></div>
 
-			<template id="clickTimeTpl">
-				<p class="click-time">
-					Button clicked at <time class="click-time__value"></time>
-				</p>
-			</template>
-		</main>
+            <template id="clickTimeTpl">
+                <p class="click-time">
+                    Button clicked at <time class="click-time__value"></time>
+                </p>
+            </template>
+        </main>
 
-		<nav class="bottom-banner" aria-label="Secondary">
-			<button type="button" class="bottom-btn">Bottom 1</button>
-			<button type="button" class="bottom-btn">Bottom 2</button>
-			<button type="button" class="bottom-btn">Bottom 3</button>
-			<button type="button" class="bottom-btn">Bottom 4</button>
-		</nav>
-	</body>
+        <nav class="bottom-banner" aria-label="Secondary">
+            <button type="button" class="bottom-btn">Bottom 1</button>
+            <button type="button" class="bottom-btn">Bottom 2</button>
+            <button type="button" class="bottom-btn">Bottom 3</button>
+            <button type="button" class="bottom-btn">Bottom 4</button>
+        </nav>
+
+        <!-- Script moved to bottom for better loading -->
+        <script src="script.js"></script>
+    </body>
 </html>

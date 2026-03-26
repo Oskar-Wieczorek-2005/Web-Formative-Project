@@ -1,212 +1,128 @@
 :root {
-	font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    --game-font-size: 16px;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --banner-bg: #0b1f3a;
+    --banner-text: #ffffff;
+}
+
+body.dark-theme {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --banner-bg: #000000;
 }
 
 body {
-	margin: 0;
-	line-height: 1.5;
+    margin: 0;
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, sans-serif;
+    /* This is the magic line */
+    font-size: var(--game-font-size);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, font-size 0.2s;
 }
 
-/* Full-width banner across the top (styling lives here) */
+/* Ensure ALL text elements use relative sizing (rem) */
+h1, h2, p, button, time, .settings-item, .nav-btn, .bottom-btn {
+    font-size: 1rem; 
+}
+
 .top-banner {
-	width: 100%;
-	box-sizing: border-box;
-
-	/* layout: title left, settings right (no overlap) */
-	display: grid;
-	grid-template-columns: 1fr auto;
-	align-items: center;
-	column-gap: 12px;
-
-	/* spacing + look */
-	padding: 14px 16px;
-	background: #0b1f3a; /* dark blue */
-	color: #ffffff;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-
-	/* ensure absolute children anchor correctly */
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--banner-bg);
+    color: var(--banner-text);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Fancy font only for title */
 .top-banner .site-title {
-	margin: 0;
-	font-family: "Cinzel", serif; /* fancy font only for title */
-	letter-spacing: 0.5px;
-	font-size: 24px;
-	min-width: 0; /* allows safe truncation instead of overlap */
-	white-space: normal; /* allow wrapping on small screens */
-	overflow-wrap: anywhere;
+    margin: 0;
+    font-family: "Cinzel", serif;
+    /* Title is now 1.5x larger than whatever the setting is */
+    font-size: 1.5rem; 
 }
 
-.top-banner #status {
-	display: none;
-}
-
-/* Always top-right within the fixed banner */
 .settings {
-	position: absolute;
-	top: 14px;
-	right: 16px;
-	justify-self: unset;
-}
-
-.settings > summary {
-	list-style: none;
-}
-
-.settings > summary::-webkit-details-marker {
-	display: none;
+    position: absolute;
+    top: 14px;
+    right: 16px;
 }
 
 .settings-btn {
-	border: 1px solid rgba(255, 255, 255, 0.18);
-	background: rgba(255, 255, 255, 0.06);
-	color: #ffffff;
-	padding: 8px 10px;
-	border-radius: 8px;
-	cursor: pointer;
-	user-select: none;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .settings-menu {
-	margin-top: 8px;
-	min-width: 180px;
-	background: #0a1a30;
-	border: 1px solid rgba(255, 255, 255, 0.12);
-	border-radius: 10px;
-	padding: 6px;
-	margin-left: auto;
-}
-
-.settings[open] .settings-menu {
-	position: absolute;
-	right: 0;
-	top: calc(100% + 8px);
-	z-index: 10;
+    margin-top: 8px;
+    min-width: 180px;
+    background: #0a1a30;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 6px;
+    position: absolute;
+    right: 0;
 }
 
 .settings-item {
-	width: 100%;
-	text-align: left;
-	border: 0;
-	background: transparent;
-	color: #ffffff;
-	padding: 10px 10px;
-	border-radius: 8px;
-	cursor: pointer;
-}
-
-.settings-item:hover {
-	background: rgba(255, 255, 255, 0.08);
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .top-nav {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
-	margin-top: 64px; /* tweak if your header height changes */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+    margin-top: 60px;
 }
 
-.top-nav .nav-btn {
-	border: 0;
-	border-right: 1px solid rgba(255, 255, 255, 0.12);
-	background: #0b1f3a; /* match banner */
-	color: #ffffff;
-	padding: clamp(8px, 2.6vw, 12px) clamp(8px, 2.8vw, 10px);
-	cursor: pointer;
-	width: 100%;
-
-	/* shrink gracefully on small screens */
-	font-size: clamp(12px, 3.2vw, 14px);
-}
-
-.top-nav .nav-btn:last-child {
-	border-right: 0;
-}
-
-.top-nav .nav-btn:hover {
-	background: #0a1a30;
+.nav-btn {
+    border: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    background: var(--banner-bg);
+    color: #ffffff;
+    padding: 12px;
+    cursor: pointer;
 }
 
 .container {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 16px;
-	padding-bottom: 124px; /* space for bottom banner (adjust if you change its height) */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 150px;
 }
 
-button {
-	padding: 10px 14px;
-	cursor: pointer;
-}
-
-/* Bottom banner: fixed 2x2 buttons */
 .bottom-banner {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 1000;
-
-	display: grid;
-	grid-template-columns: 1fr 1fr; /* strict 2 columns */
-	grid-auto-rows: 1fr; /* makes it a 2x2 with 4 buttons */
-	gap: 0;
-
-	background: #0b1f3a;
-	border-top: 1px solid rgba(255, 255, 255, 0.12);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--banner-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.bottom-banner .bottom-btn {
-	border: 0;
-	background: transparent;
-	color: #ffffff;
-
-	padding: 14px 10px;
-	cursor: pointer;
-
-	/* separators */
-	border-right: 1px solid rgba(255, 255, 255, 0.12);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-/* remove right border on 2nd + 4th */
-.bottom-banner .bottom-btn:nth-child(2n) {
-	border-right: 0;
-}
-
-/* remove bottom border on last row (3rd + 4th) */
-.bottom-banner .bottom-btn:nth-last-child(-n + 2) {
-	border-bottom: 0;
-}
-
-.bottom-banner .bottom-btn:hover {
-	background: #0a1a30;
-}
-
-/* Small screens: stack instead of overlap */
-@media (max-width: 420px) {
-	.top-banner {
-		grid-template-columns: 1fr;
-		row-gap: 10px;
-		align-items: start;
-	}
-
-	.settings {
-		justify-self: start;
-	}
-
-	.settings[open] .settings-menu {
-		left: 0;
-		right: auto;
-	}
-}
-
-#output .click-time {
-	margin: 12px 0 0;
+.bottom-btn {
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    padding: 15px;
+    cursor: pointer;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
