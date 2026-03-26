@@ -12,27 +12,30 @@ body.dark-theme {
     --banner-bg: #000000;
 }
 
+html {
+    /* This allows the JS to control everything via 1rem */
+    font-size: var(--game-font-size);
+}
+
 body {
     margin: 0;
     line-height: 1.5;
     font-family: system-ui, -apple-system, sans-serif;
-    /* This is the magic line */
-    font-size: var(--game-font-size);
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, font-size 0.2s;
 }
 
-/* Ensure ALL text elements use relative sizing (rem) */
-h1, h2, p, button, time, .settings-item, .nav-btn, .bottom-btn {
+/* All UI elements scale based on the root font-size */
+h1, p, button, .settings-item, .nav-btn, .bottom-btn, .settings-btn {
     font-size: 1rem; 
 }
 
 .top-banner {
     width: 100%;
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 14px 16px;
     background: var(--banner-bg);
@@ -45,14 +48,11 @@ h1, h2, p, button, time, .settings-item, .nav-btn, .bottom-btn {
 .top-banner .site-title {
     margin: 0;
     font-family: "Cinzel", serif;
-    /* Title is now 1.5x larger than whatever the setting is */
     font-size: 1.5rem; 
 }
 
 .settings {
-    position: absolute;
-    top: 14px;
-    right: 16px;
+    position: relative;
 }
 
 .settings-btn {
@@ -88,7 +88,7 @@ h1, h2, p, button, time, .settings-item, .nav-btn, .bottom-btn {
 .top-nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
-    margin-top: 60px;
+    margin-top: 65px; /* Pushes nav below the fixed header */
 }
 
 .nav-btn {
@@ -102,7 +102,7 @@ h1, h2, p, button, time, .settings-item, .nav-btn, .bottom-btn {
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     padding-bottom: 150px;
 }

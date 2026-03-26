@@ -3,16 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById('btn-theme');
     const soundBtn = document.getElementById('btn-sound');
     const textBtn = document.getElementById('btn-text');
-    const btnHello = document.getElementById("btnHello");
-    const output = document.getElementById("output");
-    const statusEl = document.getElementById("status");
-    const clickTimeTpl = document.getElementById("clickTimeTpl");
 
     // State
     let isDarkMode = false;
     let isSoundOn = true;
-    let textSizeIndex = 1; 
-    const textSizes = ['12px', '16px', '24px'];
+    let textSizeIndex = 1; // Default to 'Normal'
+    
+    // Configuration for text sizes
+    const textSizes = ['12px', '16px', '22px'];
     const textSizeLabels = ['Small', 'Normal', 'Large'];
 
     // Toggle Functions
@@ -28,8 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function cycleTextSize() {
+        // Cycle through the 3 sizes
         textSizeIndex = (textSizeIndex + 1) % textSizes.length;
+        
+        // Apply the new size to the root element
         document.documentElement.style.setProperty('--game-font-size', textSizes[textSizeIndex]);
+        
+        // Update button text
         textBtn.innerText = `Text Size: ${textSizeLabels[textSizeIndex]}`;
     }
 
