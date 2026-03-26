@@ -15,19 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const textSizes = ['12px', '16px', '24px'];
     const textSizeLabels = ['Small', 'Normal', 'Large'];
 
-    if (statusEl) statusEl.textContent = "Ready";
-
-    // Hello Button Logic
-    if (btnHello) {
-        btnHello.addEventListener("click", () => {
-            const now = new Date();
-            const fragment = clickTimeTpl.content.cloneNode(true);
-            const timeEl = fragment.querySelector(".click-time__value");
-            timeEl.textContent = now.toLocaleTimeString();
-            output.appendChild(fragment);
-        });
-    }
-
     // Toggle Functions
     function toggleTheme() {
         isDarkMode = !isDarkMode;
