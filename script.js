@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDarkMode = false;
     let isSoundOn = true;
     let textSizeIndex = 1; 
-    const textSizes = ['12px', '16px', '22px'];
+    const textSizes = ['12px', '16px', '20px'];
     const textSizeLabels = ['Small', 'Normal', 'Large'];
 
     // --- Modal Functions ---
